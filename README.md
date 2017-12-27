@@ -25,10 +25,12 @@ Xcode 8以上</br>
 
 
 ## 扫描二维码体验
+
+### iOS
 ![anyRTC_WaWaji_iOS](anyRTC_WaWaji_iOS.png)</br>
-
+### android
 ![anyRTC_WaWaji_android](anyRTC_WaWaji_android.png)</br>
-
+### h5
 ![anyRTC_WaWaji_h5](anyRTC_WaWaji_h5.png)</br>
 
 
