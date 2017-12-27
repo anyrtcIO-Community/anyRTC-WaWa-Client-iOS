@@ -1,0 +1,51 @@
+//
+//  DollMachine.pch
+//  DollMachine
+//
+//  Created by jh on 2017/11/29.
+//  Copyright © 2017年 jh. All rights reserved.
+//
+
+#ifndef DollMachine_pch
+#define DollMachine_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import <RTCWaWaJiEngine/RTCWawaKitDelegate.h>
+
+#import <RTCWaWaJiEngine/RTCWaWaKit.h>
+//公共类
+#import "ATCommon.h"
+//列表
+#import "ATListViewController.h"
+
+#import <AVFoundation/AVFoundation.h>
+
+//娃娃机
+#import "ATDollViewController.h"
+//RTCP
+#import <RTCPEngine/AnyRTCRtcpEngine.h>
+//提示
+#import "XHToast.h"
+//用户信息
+#define User_Info @"UserInfo"
+//倒计时
+#import "ATCountdown.h"
+
+#import "ATListModel.h"
+
+#import <MJExtension/MJExtension.h>
+
+#import <Bugly/Bugly.h>
+
+//弱指针
+#define WEAKSELF __weak typeof(self)weakSelf =self
+
+static NSString *developerID = @"XXX";
+static NSString *token = @"XXX";
+static NSString *key = @"XXX";
+static NSString *appID = @"XXX";
+
+
+#endif /* DollMachine_pch */

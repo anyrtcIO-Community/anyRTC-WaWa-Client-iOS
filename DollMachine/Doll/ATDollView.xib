@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ATDollView">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GRN-ZO-Xqd">
+                    <rect key="frame" x="41.333333333333343" y="145" width="331.33333333333326" height="446"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_gamestart" translatesAutoresizingMaskIntoConstraints="NO" id="gZi-ih-Yo8">
+                            <rect key="frame" x="0.0" y="0.0" width="331.66666666666669" height="446"/>
+                        </imageView>
+                        <button opaque="NO" tag="50" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1WQ-ao-k7l" customClass="ATCountdown">
+                            <rect key="frame" x="20" y="361" width="132.33333333333334" height="50"/>
+                            <color key="backgroundColor" red="0.79991227388381958" green="0.80005055665969849" blue="0.7999035120010376" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="7eq-y2-jwa"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <state key="normal" title="不想抓了"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="25"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="4"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="doSomethingClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="35R-Ot-ahw"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="51" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d72-2Y-QH3">
+                            <rect key="frame" x="178.66666666666669" y="361" width="132.66666666666669" height="50"/>
+                            <color key="backgroundColor" red="0.99772876501083374" green="0.45827066898345947" blue="0.13579064607620239" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <state key="normal" title="开始游戏"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="25"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="4"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="doSomethingClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="epR-N9-xhD"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="gZi-ih-Yo8" secondAttribute="trailing" id="1sZ-1f-5ib"/>
+                        <constraint firstAttribute="bottom" secondItem="gZi-ih-Yo8" secondAttribute="bottom" id="5fn-DP-i6N"/>
+                        <constraint firstItem="1WQ-ao-k7l" firstAttribute="width" secondItem="d72-2Y-QH3" secondAttribute="width" id="C5O-fh-N4y"/>
+                        <constraint firstItem="d72-2Y-QH3" firstAttribute="width" secondItem="gZi-ih-Yo8" secondAttribute="width" multiplier="0.4" id="Hmp-ou-BQI"/>
+                        <constraint firstAttribute="trailing" secondItem="d72-2Y-QH3" secondAttribute="trailing" constant="20" id="N7m-tD-reg"/>
+                        <constraint firstItem="gZi-ih-Yo8" firstAttribute="leading" secondItem="GRN-ZO-Xqd" secondAttribute="leading" id="OB3-KH-IWF"/>
+                        <constraint firstAttribute="width" secondItem="GRN-ZO-Xqd" secondAttribute="height" multiplier="113:152" id="Ttz-hM-AXw"/>
+                        <constraint firstItem="1WQ-ao-k7l" firstAttribute="leading" secondItem="GRN-ZO-Xqd" secondAttribute="leading" constant="20" id="Xlw-3y-URY"/>
+                        <constraint firstAttribute="bottom" secondItem="1WQ-ao-k7l" secondAttribute="bottom" constant="35" id="aEz-va-oPn"/>
+                        <constraint firstItem="d72-2Y-QH3" firstAttribute="height" secondItem="1WQ-ao-k7l" secondAttribute="height" id="br9-MH-mow"/>
+                        <constraint firstAttribute="bottom" secondItem="d72-2Y-QH3" secondAttribute="bottom" constant="35" id="tvH-d3-Y6R"/>
+                        <constraint firstItem="gZi-ih-Yo8" firstAttribute="top" secondItem="GRN-ZO-Xqd" secondAttribute="top" id="yoQ-r6-JT8"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.75" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="GRN-ZO-Xqd" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="1WK-QM-DSb"/>
+                <constraint firstItem="GRN-ZO-Xqd" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.8" id="CII-2b-2HQ"/>
+                <constraint firstItem="GRN-ZO-Xqd" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="F5U-wD-ScR"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="leftButton" destination="1WQ-ao-k7l" id="dat-nP-Crz"/>
+                <outlet property="resultImageView" destination="gZi-ih-Yo8" id="wJ3-ur-ufd"/>
+                <outlet property="rightButton" destination="d72-2Y-QH3" id="YRi-zd-83L"/>
+            </connections>
+            <point key="canvasLocation" x="-277" y="48"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="img_gamestart" width="340" height="457"/>
+    </resources>
+</document>
