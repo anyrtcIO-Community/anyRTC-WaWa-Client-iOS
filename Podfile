@@ -1,6 +1,7 @@
 platform :ios,'9.0'
 target ‘DollMachine’ do
 
+pod 'RTCPEngine', '~> 1.0.8'
 pod 'XHToast', '~> 1.4.0'
 pod 'MJExtension', :inhibit_warnings => true
 pod 'Bugly'

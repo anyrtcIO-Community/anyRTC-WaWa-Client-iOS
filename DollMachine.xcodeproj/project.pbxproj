@@ -15,7 +15,7 @@
 		6326627E1FDE39910003CFA3 /* ATCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6326627C1FDE39910003CFA3 /* ATCollectionReusableView.xib */; };
 		63316F961FD8F15F0054C183 /* sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 63316F951FD8F15F0054C183 /* sound.mp3 */; };
 		63689F1F1FD640D90049615F /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63689F1E1FD640D90049615F /* Launch Screen.storyboard */; };
-		636E9C6A1FF36EA400BA5F1E /* RTCWaWaJiEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 636E9C691FF36EA400BA5F1E /* RTCWaWaJiEngine.framework */; };
+		63734CBD2109D3A900DEA751 /* RTCWaWaJiEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63734CBC2109D3A900DEA751 /* RTCWaWaJiEngine.framework */; };
 		637CC5721FD5381800F1F945 /* ready_go.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 637CC5711FD5381800F1F945 /* ready_go.mp3 */; };
 		63A7DEAE1FCE6851001C31E8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A7DEAD1FCE6851001C31E8 /* AppDelegate.m */; };
 		63A7DEB41FCE6851001C31E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63A7DEB21FCE6851001C31E8 /* Main.storyboard */; };
@@ -27,8 +27,6 @@
 		63D0DB661FD0E9FA002614C5 /* ATCountdown.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D0DB651FD0E9FA002614C5 /* ATCountdown.m */; };
 		63D0DB6C1FD0F4EA002614C5 /* sucess.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 63D0DB6A1FD0F4EA002614C5 /* sucess.mp3 */; };
 		63D0DB6D1FD0F4EA002614C5 /* fail.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 63D0DB6B1FD0F4EA002614C5 /* fail.mp3 */; };
-		63D0DB731FD158DC002614C5 /* RTCPEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63D0DB721FD158DC002614C5 /* RTCPEngine.framework */; };
-		63D0DB751FD158E6002614C5 /* RTCPEngine.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 63D0DB721FD158DC002614C5 /* RTCPEngine.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		63D61E671FDAC8870092AF57 /* BaseNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D61E651FDAC8870092AF57 /* BaseNavigationViewController.m */; };
 		63D932921FCEFCB0000D5905 /* ATDollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D932911FCEFCB0000D5905 /* ATDollView.m */; };
 		63D932941FCEFD0E000D5905 /* ATDollView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63D932931FCEFD0E000D5905 /* ATDollView.xib */; };
@@ -60,7 +58,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				63D0DB751FD158E6002614C5 /* RTCPEngine.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -82,7 +79,7 @@
 		6326627C1FDE39910003CFA3 /* ATCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ATCollectionReusableView.xib; sourceTree = "<group>"; };
 		63316F951FD8F15F0054C183 /* sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sound.mp3; sourceTree = "<group>"; };
 		63689F1E1FD640D90049615F /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		636E9C691FF36EA400BA5F1E /* RTCWaWaJiEngine.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RTCWaWaJiEngine.framework; sourceTree = "<group>"; };
+		63734CBC2109D3A900DEA751 /* RTCWaWaJiEngine.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RTCWaWaJiEngine.framework; sourceTree = "<group>"; };
 		637CC5711FD5381800F1F945 /* ready_go.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ready_go.mp3; sourceTree = "<group>"; };
 		63A7DEA91FCE6851001C31E8 /* DollMachine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DollMachine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63A7DEAC1FCE6851001C31E8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -104,7 +101,6 @@
 		63D0DB651FD0E9FA002614C5 /* ATCountdown.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATCountdown.m; sourceTree = "<group>"; };
 		63D0DB6A1FD0F4EA002614C5 /* sucess.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sucess.mp3; sourceTree = "<group>"; };
 		63D0DB6B1FD0F4EA002614C5 /* fail.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fail.mp3; sourceTree = "<group>"; };
-		63D0DB721FD158DC002614C5 /* RTCPEngine.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RTCPEngine.framework; sourceTree = "<group>"; };
 		63D61E651FDAC8870092AF57 /* BaseNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationViewController.m; sourceTree = "<group>"; };
 		63D61E661FDAC8870092AF57 /* BaseNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavigationViewController.h; sourceTree = "<group>"; };
 		63D9328F1FCEFAAE000D5905 /* DollMachine.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DollMachine.pch; sourceTree = "<group>"; };
@@ -122,9 +118,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				636E9C6A1FF36EA400BA5F1E /* RTCWaWaJiEngine.framework in Frameworks */,
+				63734CBD2109D3A900DEA751 /* RTCWaWaJiEngine.framework in Frameworks */,
 				FCCED8EABE876CDEAE4CB046 /* Pods_DollMachine.framework in Frameworks */,
-				63D0DB731FD158DC002614C5 /* RTCPEngine.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,8 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				63D0DB5F1FD02FA2002614C5 /* DollMachine.entitlements */,
-				636E9C691FF36EA400BA5F1E /* RTCWaWaJiEngine.framework */,
-				63D0DB721FD158DC002614C5 /* RTCPEngine.framework */,
+				63734CBC2109D3A900DEA751 /* RTCWaWaJiEngine.framework */,
 				632662651FDE19670003CFA3 /* Main */,
 				63C500D01FCEAED8004E3002 /* Helper */,
 				63C500D51FCEAF0E004E3002 /* Doll */,
@@ -298,7 +292,6 @@
 				63A7DEA61FCE6851001C31E8 /* Frameworks */,
 				63A7DEA71FCE6851001C31E8 /* Resources */,
 				F5552F1DFC3364976F107E6B /* [CP] Embed Pods Frameworks */,
-				CC92586C7BBF56C677D705CB /* [CP] Copy Pods Resources */,
 				63EE6F451FCE694600470972 /* Embed Frameworks */,
 			);
 			buildRules = (
@@ -352,7 +345,7 @@
 		63A7DEA11FCE6851001C31E8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0910;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = jh;
 				TargetAttributes = {
 					63A7DEA81FCE6851001C31E8 = {
@@ -440,28 +433,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DollMachine-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		CC92586C7BBF56C677D705CB /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DollMachine/Pods-DollMachine-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F5552F1DFC3364976F107E6B /* [CP] Embed Pods Frameworks */ = {
@@ -470,9 +451,20 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-DollMachine/Pods-DollMachine-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
+				"${PODS_ROOT}/RTCPEngine/RTCPEngine/RTCPEngine.framework",
+				"${BUILT_PRODUCTS_DIR}/Socket.IO-Client-Swift/SocketIO.framework",
+				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
+				"${BUILT_PRODUCTS_DIR}/XHToast/XHToast.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RTCPEngine.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SocketIO.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XHToast.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -558,6 +550,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -565,6 +558,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -613,6 +607,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -620,6 +615,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -652,6 +648,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0C41AFDD22D431525A078DE8 /* Pods-DollMachine.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -680,6 +677,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B72E157EEF467BCCBB929C44 /* Pods-DollMachine.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

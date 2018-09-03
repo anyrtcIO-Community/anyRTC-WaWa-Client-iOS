@@ -367,8 +367,8 @@
 - (RTCPOption *)option{
     if (!_option) {
         _option = [RTCPOption defaultOption];
-        _option.videoMode = RTCP_Videos_SD;
-        _option.orientation = RTCP_SCRN_PortraitUpsideDown;
+        _option.videoMode = AnyRTCVideoQuality_Medium2;
+        _option.orientation = RTC_SCRN_Portrait;
     }
     return _option;
 }
