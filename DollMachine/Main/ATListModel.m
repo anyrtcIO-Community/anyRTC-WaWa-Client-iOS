@@ -17,7 +17,6 @@
 @end
 @implementation Roomlist
 
-
 - (void)setRoom_url:(NSString *)room_url{
     _room_url = room_url;
     if (room_url && ![room_url isEqualToString:@""]) {

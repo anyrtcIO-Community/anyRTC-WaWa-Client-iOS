@@ -7,10 +7,9 @@
 //
 
 #import "ATDollViewController.h"
-#import <RTCPEngine/RTCPKit.h>
 #import "ATDollView.h"
 
-@interface ATDollViewController ()<RTCPKitDelegate,AVAudioPlayerDelegate,RTCWawaKitDelegate>
+@interface ATDollViewController ()<ARRtcpKitDelegate,AVAudioPlayerDelegate,ARWawaKitDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *localView;
 //操作（上下左右抓取）
@@ -28,9 +27,9 @@
 //排队人数
 @property (weak, nonatomic) IBOutlet UILabel *lineUpLabel;
 
-@property (nonatomic, strong) RTCPKit *rtcpKit;
-//配置信息
-@property (nonatomic, strong) RTCPOption *option;
+@property (nonatomic, strong) ARRtcpKit *rtcpKit;
+
+@property (nonatomic, copy) NSString *userId;
 //抓取结果
 @property (nonatomic, strong) ATDollView *dollView;
 
@@ -51,12 +50,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.anyRtcId = self.listModel.room_anyrtcid;
+    self.userId = [ATCommon randomAnyRTCString:6];
     [self initUI];
     [self itializationRTCPKit:self.listModel.RtcpUrl];
     
     //加入房间
-    [RTCWaWaKit sharedInstance].delegate = self;
-    [[RTCWaWaKit sharedInstance] joinRoom:self.anyRtcId withUserId:[NSString stringWithFormat:@"iOS_%@",[ATCommon randomAnyRTCString:6]] UserName:[ATCommon randomString:6] withUserIcon:@""];
+    ARWaWaKit.sharedInstance.delegate = self;
+    [ARWaWaKit.sharedInstance joinRoom:self.anyRtcId userId:[NSString stringWithFormat:@"iOS_%@",self.userId] userName:[ATCommon randomString:6] userIcon:@""];
 }
 
 - (void)initUI{
@@ -72,32 +72,38 @@
 }
 
 - (void)itializationRTCPKit:(NSString *)rtcpId{
-    //初始化会议工具类
-    self.rtcpKit = [[RTCPKit alloc]initWithDelegate:self withOption:self.option];
+    //配置信息
+    ARRtcpOption *option = [ARRtcpOption defaultOption];
+    ARVideoConfig *config = [[ARVideoConfig alloc] init];
+    config.videoProfile = ARVideoProfile480x640;
+    option.videoConfig = config;
+    
+    self.rtcpKit = [[ARRtcpKit alloc] initWithDelegate:self userId:self.userId userData:@""];
     //观看直播
-    [self.rtcpKit subscribe:rtcpId];
+    [self.rtcpKit subscribeByToken:@"" pubId:rtcpId];
 }
 
-#pragma mark - RTCDollKitDelegate
-- (void)onJoinRoom:(NSString*)rtcpId andRoomMember:(int)roomMember withCode:(int)code{
+#pragma mark - ARWawaKitDelegate
+
+- (void)onJoinRoom:(NSString *)rtcpId roomMember:(int)roomMember code:(int)code {
     //进入房间通知(抓娃娃机者)
     self.appointmentButton.hidden = NO;
     NSString *onlineStr = [NSString stringWithFormat:@"  %d人正在围观",roomMember];
     [self.onlineButton setTitle:onlineStr forState:UIControlStateNormal];
 }
 
-- (void)onLeaveRoom:(int)code{
+- (void)onLeaveRoom:(int)code {
     //离开房间通知(抓娃娃机者)
     [XHToast showCenterWithText:@"娃娃机维护中..."];
     [self.rtcpKit close];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void)onWawajiDisconnect{
+- (void)onWawajiDisconnect {
     //娃娃机连接断开通知
 }
 
-- (void)onWawajiReconnect:(NSString*)rtcpId{
+- (void)onWawajiReconnect:(NSString *)rtcpId {
     //娃娃机断开重连通知
     if (self.rtcpKit) {
         [self.rtcpKit close];
@@ -105,18 +111,18 @@
     [self itializationRTCPKit:rtcpId];
 }
 
-- (void)onBookResult:(int)bookMember withCode:(int)code{
+- (void)onBookResult:(int)bookMember code:(int)code {
     //预约结果通知
     self.lineUpLabel.hidden = NO;
     NSString *bookStr = [NSString stringWithFormat:@"您当前排在：第%d位",bookMember];
     self.lineUpLabel.text = bookStr;
 }
 
-- (void)onControlCmd:(AnyRTC_CMD_State)eCmd withCode:(int)code{
-    //控制命令通知
+- (void)onControlCmd:(ARWaWaJi_CMD_State)cmd code:(int)code {
+    //控制命令回调
 }
 
-- (void)onGrabResult:(int)code{
+- (void)onGrabResult:(int)code {
     //抓娃娃结果通知
     if (self.resultIndex == 1) {
         
@@ -148,13 +154,13 @@
     }
 }
 
-- (void)onRoomMemberUpdate:(int)roomMember{
+- (void)onRoomMemberUpdate:(int)roomMember {
     //房间人数变化通知
     NSString *onlineStr = [NSString stringWithFormat:@"  %d人正在围观",roomMember];
     [self.onlineButton setTitle:onlineStr forState:UIControlStateNormal];
 }
 
-- (void)onBookMemberUpdate:(int)bookMember{
+- (void)onBookMemberUpdate:(int)bookMember {
     //排队人数变化通知
     NSString *bookStr = @"";
     if (self.appointmentButton.selected) {
@@ -165,7 +171,7 @@
     self.lineUpLabel.text = bookStr;
 }
 
-- (void)onReadyPlay{
+- (void)onReadyPlay {
     //排队抓娃娃准备通知
     self.lineUpLabel.hidden = YES;
     self.operationsView.userInteractionEnabled = YES;
@@ -180,7 +186,7 @@
     }
 }
 
-- (void)onReadyPlayTimeout{
+- (void)onReadyPlayTimeout {
     //准备超时通知
     self.operationsView.hidden = YES;
     self.appointmentButton.hidden = NO;
@@ -189,7 +195,7 @@
     [self.dollView removeFromSuperview];
 }
 
-- (void)onPlayTimeout{
+- (void)onPlayTimeout {
     //抓娃娃超时通知
     self.operationsView.hidden = YES;
     self.transformButton.hidden = YES;
@@ -197,41 +203,54 @@
     self.appointmentButton.selected = NO;
 }
 
-#pragma mark - RTCPKitDelegate
-- (void)onPublishOK:(NSString *)strRtcpId withLiveInfo:(NSString*)strLiveInfo{
+#pragma mark - ARRtcpKitDelegate
+
+- (void)onRTCPublishOK:(NSString *)pubId liveInfo:(NSString *)liveInfo {
     //发布媒体成功回调
 }
 
-- (void)onPublishFailed:(int)nCode{
+- (void)onRTCPublishFailed:(ARRtcpCode)code reason:(NSString *)reason {
     //发布媒体失败回调
 }
 
-- (void)onSubscribeOK:(NSString*)strRtcpId{
+- (void)onRTCSubscribeOK:(NSString *)pubId {
     //订阅频道成功的回调
     self.isOK = YES;
     NSLog(@"订阅成功");
 }
 
-- (void)onSubscribeFailed:(NSString*)strRtcpId intCode:(int)nCode{
+- (void)onRTCSubscribeFailed:(NSString *)pubId code:(ARRtcpCode)code reason:(NSString *)reason {
     //订阅频道失败的回调
     self.isOK = NO;
     NSLog(@"订阅失败");
     [XHToast showCenterWithText:@"当前娃娃机离线"];
 }
 
-- (void)onRTCOpenVideoRender:(NSString*)strRtcpId{
+- (void)onRTCOpenRemoteVideoRender:(NSString *)pubId {
     //订阅后视频即将显示的回调
-    [self.rtcpKit setRTCVideoRender:strRtcpId andRender:self.localView];
+    [self.rtcpKit setRemoteVideoRender:self.localView pubId:pubId];
 }
 
-- (void)onRTCCloseVideoRender:(NSString*)strRtcpId{
+- (void)onRTCCloseRemoteVideoRender:(NSString *)pubId {
     //订阅的视频离开的回调
     [self.rtcpKit close];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void)onRTCCViewChanged:(UIView*)videoView didChangeVideoSize:(CGSize)size{
-    //视频窗口大小的回调  480 640
+- (void)onRTCFirstLocalVideoFrame:(CGSize)size{
+    //本地视频第一帧
+}
+
+- (void)onRTCFirstRemoteVideoFrame:(CGSize)size pubId:(NSString *)pubId {
+    //远程视频第一帧
+}
+
+- (void)onRTCLocalVideoViewChanged:(CGSize)size {
+    //本地窗口大小的回调
+}
+
+- (void)onRTCRemoteVideoViewChanged:(CGSize)size pubId:(NSString *)pubId {
+    //远程窗口大小的回调
 }
 
 #pragma mark - event
@@ -240,27 +259,27 @@
         case 99://上
             
             [self playMusic:Doll_Control_Style];
-            [[RTCWaWaKit sharedInstance] sendControlCmd:CMD_FORWARD];
+            [ARWaWaKit.sharedInstance sendControlCmd:ARWaWaJi_CMD_FORWARD];
             break;
         case 100://右
             
             [self playMusic:Doll_Control_Style];
-            [[RTCWaWaKit sharedInstance] sendControlCmd:CMD_RIGHT];
+            [ARWaWaKit.sharedInstance sendControlCmd:ARWaWaJi_CMD_RIGHT];
             break;
         case 101://左
             
             [self playMusic:Doll_Control_Style];
-            [[RTCWaWaKit sharedInstance] sendControlCmd:CMD_LEFT];
+            [ARWaWaKit.sharedInstance sendControlCmd:ARWaWaJi_CMD_LEFT];
             break;
         case 102://下
             
             [self playMusic:Doll_Control_Style];
-            [[RTCWaWaKit sharedInstance] sendControlCmd:CMD_BACKWARD];
+            [ARWaWaKit.sharedInstance sendControlCmd:ARWaWaJi_CMD_BACKWARD];
             break;
         case 103://切换
             
             [self playMusic:Doll_Control_Style];
-            [[RTCWaWaKit sharedInstance] sendControlCmd:CMD_SWITCH_CAMERA];
+            [ARWaWaKit.sharedInstance sendControlCmd:ARWaWaJi_CMD_SWITCH_CAMERA];
             break;
         case 104://抓取
             
@@ -271,7 +290,7 @@
             [self.catchButton timeMeterEnd];
             [self.catchButton setTitle:@"抓取" forState:UIControlStateNormal];
             self.operationsView.userInteractionEnabled = NO;
-            [[RTCWaWaKit sharedInstance] sendControlCmd:CMD_GRAB];
+            [ARWaWaKit.sharedInstance sendControlCmd:ARWaWaJi_CMD_GRAB];
             break;
         case 105://预约
             if (!self.isOK) {
@@ -283,10 +302,10 @@
             sender.selected = !sender.selected;
             
             if (sender.selected) {
-                [[RTCWaWaKit sharedInstance] makeBook];
+                [ARWaWaKit.sharedInstance makeBook];
                 self.lineUpLabel.hidden = NO;
             } else {
-                [[RTCWaWaKit sharedInstance] cancelBook];
+                [ARWaWaKit.sharedInstance cancelBook];
                 self.lineUpLabel.hidden = YES;
             }
             
@@ -295,13 +314,13 @@
         {
             //离开
             if (self.appointmentButton.selected) {//预约状态
-                [[RTCWaWaKit sharedInstance] cancelBook];
+                [ARWaWaKit.sharedInstance cancelBook];
             }
             if (self.timer) {
                 [self.timer invalidate];
                 self.timer = nil;
             }
-            [[RTCWaWaKit sharedInstance] leaveRoom];
+            [ARWaWaKit.sharedInstance leaveRoom];
             [self.navigationController popViewControllerAnimated:YES];
         }
             break;
@@ -364,14 +383,6 @@
 }
 
 #pragma mark - other
-- (RTCPOption *)option{
-    if (!_option) {
-        _option = [RTCPOption defaultOption];
-        _option.videoMode = AnyRTCVideoQuality_Medium2;
-        _option.orientation = RTC_SCRN_Portrait;
-    }
-    return _option;
-}
 
 - (ATDollView *)dollView{
     if (!_dollView) {
@@ -391,7 +402,7 @@
                 case 51://再接再厉
                 {
                     weakSelf.index = 1;
-                    [[RTCWaWaKit sharedInstance] makeBook];
+                    [ARWaWaKit.sharedInstance makeBook];
                     weakSelf.operationsView.hidden = YES;
                     weakSelf.appointmentButton.hidden = NO;
                     weakSelf.appointmentButton.selected = YES;
@@ -404,14 +415,14 @@
                     weakSelf.appointmentButton.hidden = NO;
                     weakSelf.appointmentButton.selected = NO;
                     [weakSelf.appointmentButton setTitle:@"我要预约" forState:UIControlStateNormal];
-                    [[RTCWaWaKit sharedInstance] cancelPlay];
+                    [ARWaWaKit.sharedInstance cancelPlay];
                     [weakSelf.dollView removeFromSuperview];
                 }
                     break;
                 case 53://开始
                 {
                     weakSelf.resultIndex = 1;
-                    [[RTCWaWaKit sharedInstance] startPlay];
+                    [ARWaWaKit.sharedInstance startPlay];
                     [weakSelf.catchButton timeFailBeginFrom:30 andDescribe:NO];
                     [weakSelf playMusic:Doll_Read_Style];
                     [weakSelf.dollView removeFromSuperview];

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ATListViewController : UICollectionViewController<RTCWawaKitDelegate>
+@interface ATListViewController : UICollectionViewController<ARWawaKitDelegate>
 
 @property (nonatomic, strong)NSMutableArray *dataArr;
 

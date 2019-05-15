@@ -25,8 +25,8 @@ static NSString * const reuseIdentifier = @"ListCellID";
     
     [self.collectionView registerNib:[UINib nibWithNibName:@"ATCollectionReusableView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"ListReusable"];
     
-    [[RTCWaWaKit sharedInstance]initEngineWithAnyRTCInfo:developerID andAppId:appID andKey:key andToke:token];
-    [RTCWaWaKit sharedInstance].delegate = self;
+    [ARWaWaKit.sharedInstance initEngine:developerID appId:appID key:key toke:token];
+    ARWaWaKit.sharedInstance.delegate = self;
     
     [self refreshData];
 }
@@ -55,7 +55,7 @@ static NSString * const reuseIdentifier = @"ListCellID";
         }
     });
     
-    [[RTCWaWaKit sharedInstance] getRoomListWithBlock:^(NSDictionary *listDic) {
+    [ARWaWaKit.sharedInstance getRoomListWithBlock:^(NSDictionary * _Nonnull listDic) {
         [self.refreshControl endRefreshing];
         [self.dataArr removeAllObjects];
         ATListModel *listModel = [ATListModel mj_objectWithKeyValues:listDic];
@@ -65,7 +65,6 @@ static NSString * const reuseIdentifier = @"ListCellID";
         
         [self.collectionView reloadData];
     }];
-    
 }
 
 - (void)setNavBar{

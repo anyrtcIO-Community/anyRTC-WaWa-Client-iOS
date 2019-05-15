@@ -1,6 +1,0 @@
-framework module RTCWaWaJiEngine {
-  umbrella header "RTCWaWaJiEngine.h"
-
-  export *
-  module * { export * }
-}

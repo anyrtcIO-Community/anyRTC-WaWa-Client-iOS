@@ -1,9 +1,9 @@
 ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/MJExtension" "${PODS_CONFIGURATION_BUILD_DIR}/Socket.IO-Client-Swift" "${PODS_CONFIGURATION_BUILD_DIR}/Starscream" "${PODS_CONFIGURATION_BUILD_DIR}/XHToast" "${PODS_ROOT}/Bugly" "${PODS_ROOT}/RTCPEngine/RTCPEngine"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/MJExtension" "${PODS_CONFIGURATION_BUILD_DIR}/Socket.IO-Client-Swift" "${PODS_CONFIGURATION_BUILD_DIR}/Starscream" "${PODS_CONFIGURATION_BUILD_DIR}/XHToast" "${PODS_ROOT}/Bugly"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
 OTHER_CFLAGS = $(inherited) -iquote "${PODS_CONFIGURATION_BUILD_DIR}/MJExtension/MJExtension.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/Socket.IO-Client-Swift/SocketIO.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/Starscream/Starscream.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/XHToast/XHToast.framework/Headers"
-OTHER_LDFLAGS = $(inherited) -ObjC -l"c++" -l"z" -framework "AVFoundation" -framework "AudioToolbox" -framework "Bugly" -framework "CoreMedia" -framework "Foundation" -framework "GLKit" -framework "MJExtension" -framework "OpenGLES" -framework "RTCPEngine" -framework "Security" -framework "SocketIO" -framework "Starscream" -framework "SystemConfiguration" -framework "UIKit" -framework "VideoToolbox" -framework "XHToast"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"c++" -l"z" -framework "Bugly" -framework "MJExtension" -framework "Security" -framework "SocketIO" -framework "Starscream" -framework "SystemConfiguration" -framework "XHToast"
 OTHER_SWIFT_FLAGS = $(inherited) "-D" "COCOAPODS"
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)

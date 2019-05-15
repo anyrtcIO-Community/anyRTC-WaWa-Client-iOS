@@ -13,10 +13,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     //配置开发者信息
-    [AnyRTCRtcpEngine initEngineWithAnyRTCInfo:developerID andAppId:appID andKey:key andToke:token];
-    [NSThread sleepForTimeInterval:1];
-    //腾讯Bugly
-    //[Bugly startWithAppId:@""];
+    [ARRtcpEngine initEngine:appID token:token];
     return YES;
 }
 

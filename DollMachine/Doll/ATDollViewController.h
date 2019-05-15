@@ -12,7 +12,6 @@
 @interface ATDollViewController : UIViewController
 
 @property (nonatomic, copy) NSString *anyRtcId;
-
 @property (nonatomic, strong) Roomlist *listModel;
 
 @end
